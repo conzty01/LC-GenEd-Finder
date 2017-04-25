@@ -1,10 +1,10 @@
 import psycopg2
 
 def createCourse(cursor):
-    cursor.execute("DROP TABLE IF EXISTS lccourse CASCADE;")
+    cursor.execute("DROP TABLE IF EXISTS course CASCADE;")
     cursor.execute("""
 
-    CREATE TABLE lccourse (
+    CREATE TABLE course (
         id              serial,
         num             varchar(50),
         description     text,
@@ -15,10 +15,10 @@ def createCourse(cursor):
 
     """)
 def createRequirement(cursor):
-    cursor.execute("DROP TABLE IF EXISTS lcrequirement CASCADE;")
+    cursor.execute("DROP TABLE IF EXISTS requirement CASCADE;")
     cursor.execute("""
 
-    CREATE TABLE lcrequirement (
+    CREATE TABLE requirement (
         id              serial,
         name            varchar(100),
         description     text,
@@ -32,17 +32,17 @@ def createRequirement(cursor):
                 "Ethical"]
 
     for i in genEds:
-        cursor.execute("INSERT INTO lcrequirement (name) VALUES ('{}')".format(i))
+        cursor.execute("INSERT INTO requirement (name) VALUES ('{}')".format(i))
 def createCourseReq(cursor):
-    cursor.execute("DROP TABLE IF EXISTS lccourse_requirement")
+    cursor.execute("DROP TABLE IF EXISTS course_requirement")
     cursor.execute("""
 
-    CREATE TABLE lccourse_requirement (
+    CREATE TABLE course_requirement (
         course          int,
         requirement     int,
         PRIMARY KEY (course, requirement),
-        FOREIGN KEY (course) REFERENCES lcCourse(id),
-        FOREIGN KEY (requirement) REFERENCES lcRequirement(id)
+        FOREIGN KEY (course) REFERENCES Course(id),
+        FOREIGN KEY (requirement) REFERENCES Requirement(id)
     );
 
     """)
