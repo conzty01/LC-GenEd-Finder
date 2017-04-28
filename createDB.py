@@ -41,8 +41,8 @@ def createCourseReq(cursor):
         course          int,
         requirement     int,
         PRIMARY KEY (course, requirement),
-        FOREIGN KEY (course) REFERENCES Course(id),
-        FOREIGN KEY (requirement) REFERENCES Requirement(id)
+        FOREIGN KEY (course) REFERENCES course(id),
+        FOREIGN KEY (requirement) REFERENCES requirement(id)
     );
 
     """)
