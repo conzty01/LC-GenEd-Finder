@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block container %}
+    <div class="results">
+        <table>
+            <tr><th>Course Number</th><th>Course Title</th><th>Fullfills</th></tr>
+            {% if len(results) > 0:}
+
+                {% for tup in results: %}
+                <tr>
+                    <td>{{ tup[0] }}</td>
+                    <td><a href="https://www.luther.edu/catalog/curriculum/{{ tup[1].lower().replace(" ","-") }}" target="_blank">
+    		    {{ tup[2] }}</a></td>
+                    <td>{{ tup[3] }}</td>
+                </tr>
+                {% endfor %}
+
+            {% endif %}
+
+            {% if len(results) == 0: %}
+                <tr>
+                    <td>--</td>
+                    <td>No results were found matching all criteria: {{ queryList }}</td>
+                    <td>--</td>
+                </tr>
+            {% endif %}
+    </div>
+{% endblock %}

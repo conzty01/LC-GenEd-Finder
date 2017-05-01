@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block container %}
+    <div class="leftColumn">
+        <ul>
+            {% for entryTuple in requirement: %}
+            <li><a href="/{{ entryTuple[0] }}">{{ entryTuple[0] }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="rightColumn">
+        <form id="searchMultiple" action="/searchMult/" method="post">
+            {% for entryTuple in requirement: %}
+            <input type="checkbox" name="{{ entryTuple[0] }}" value="{{ entryTuple[0] }}">{{ entryTuple[0] }}</br>
+            {% endfor %}
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock %}

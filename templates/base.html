@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% block head %}
+        <title>{% block title %}LC GenEd Finder{% endblock %}</title>
+        <link rel="stylesheet" href="/static/master.css">
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        <div class="container">
+            <h1>{% block header %}Find the GenEd That is Right for You!{% endblock %}</h1>
+
+            <p class="description">{% block description %}
+                This is a web application that searches through the courses offered at Luther College
+                and allows you to search through those courses based on the All College General Education
+                requirements that they satisfy.
+            {% endblock %}</p>
+
+            {% block container %}
+            {% endblock %}
+        </div>
+        {% endblock %}
+    </body>
+</html>
