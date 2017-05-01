@@ -23,7 +23,7 @@ def searchGenEd(genEd):
         SELECT num, title, department, name
         FROM course JOIN course_requirement ON(course.id = course_requirement.course)
              JOIN requirement ON(course_requirement.requirement = requirement.id)
-        WHERE name LIKE '%%{}%%'
+        WHERE name = '{}'
     """.format(genEd))
 
     return render_template("result.html",results=cur.fetchall())

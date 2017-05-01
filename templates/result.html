@@ -2,27 +2,30 @@
 
 {% block container %}
     <div class="results">
-        <table>
+        <table class="table-striped">
             <tr><th>Course Number</th><th>Course Title</th><th>Fullfills</th></tr>
-            {% if len(results) > 0:}
+            {% if results|length > 0: %}
 
                 {% for tup in results: %}
                 <tr>
                     <td>{{ tup[0] }}</td>
-                    <td><a href="https://www.luther.edu/catalog/curriculum/{{ tup[1].lower().replace(" ","-") }}" target="_blank">
-    		    {{ tup[2] }}</a></td>
+                    <td id="center"><a href="https://www.luther.edu/catalog/curriculum/{{ tup[2].lower().replace(" ","-") }}" target="_blank">
+    		    {{ tup[1] }}</a></td>
                     <td>{{ tup[3] }}</td>
                 </tr>
                 {% endfor %}
 
             {% endif %}
 
-            {% if len(results) == 0: %}
-                <tr>
+            {% if results|length == 0: %}
+                <tr><td colspan="3"></td></tr>
+                <tr class="empty">
                     <td>--</td>
-                    <td>No results were found matching all criteria: {{ queryList }}</td>
+                    <td>No results were found matching all criteria: {{ ql }}</td>
                     <td>--</td>
                 </tr>
             {% endif %}
+            <tr><td colspan="3"><a href="#Top">Back To Top</a></td></tr>
+        </table>
     </div>
 {% endblock %}

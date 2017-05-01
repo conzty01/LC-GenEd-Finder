@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+body {
+    background-color: #002f6c;
+}
+h1 {
+    text-align: center;
+}
+h3 {
+    text-align: center;
+}
+ul {
+    list-style-type: square;
+}
+li {
+    margin-bottom: 6px;
+}
+table {
+    border: 1px;
+    border-color: #000;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-bottom: 15px;
+    width: 90%;
+}
+a:visited, a:link {
+    color: blue;
+}
+td#center {
+    width: auto;
+}
+form {
+    margin-bottom: 15px;
+}
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #e6f1ff;
+}
+.container {
+    position: absolute;
+    background-color: #FFF;
+    display: block;
+    margin-left: 5%;
+    margin-right: 5%;
+    top: 25px;
+    padding: 5px;
+    width: auto;
+}
+.description {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.leftColumn {
+    position: relative;
+    width: auto;
+    display: block;
+    float: left;
+    padding-left: 10%;
+}
+.rightColumn {
+    position: relative;
+    width: auto;
+    display: block;
+    float: right;
+    padding-right: 12%;
+}

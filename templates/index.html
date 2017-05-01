@@ -2,6 +2,7 @@
 
 {% block container %}
     <div class="leftColumn">
+        <h3>Search by GenEd!</h3>
         <ul>
             {% for entryTuple in requirement: %}
             <li><a href="/{{ entryTuple[0] }}">{{ entryTuple[0] }}</a></li>
@@ -9,6 +10,7 @@
         </ul>
     </div>
     <div class="rightColumn">
+        <h3>Search by Multiple GenEds!</h3>
         <form id="searchMultiple" action="/searchMult/" method="post">
             {% for entryTuple in requirement: %}
             <input type="checkbox" name="{{ entryTuple[0] }}" value="{{ entryTuple[0] }}">{{ entryTuple[0] }}</br>
