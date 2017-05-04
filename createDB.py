@@ -47,13 +47,12 @@ def createCourseReq(cursor):
 
     """)
 def main():
-    conn = psycopg2.connect(dbname="conzty01",user="conzty01",host="knuth.luther.edu")
+    conn = psycopg2.connect(os.environ["DATABASE_URL"])
     cur = conn.cursor()
 
     createCourse(cur)
     createRequirement(cur)
     createCourseReq(cur)
-
 
     conn.commit()
 
