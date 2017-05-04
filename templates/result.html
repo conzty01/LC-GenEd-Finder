@@ -9,8 +9,8 @@
                 {% for tup in results: %}
                 <tr>
                     <td>{{ tup[0] }}</td>
-                    <td id="center"><a href="https://www.luther.edu/catalog/curriculum/{{ tup[2].lower().replace(" ","-") }}" target="_blank">
-    		    {{ tup[1] }}</a></td>
+                    <td id="center"><a href="https://www.luther.edu/catalog/curriculum/{{ tup[1].lower().replace(" ","-") }}" target="_blank">
+    		    {{ tup[2] }}</a></td>
                     <td>{{ tup[3] }}</td>
                 </tr>
                 {% endfor %}
