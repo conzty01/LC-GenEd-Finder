@@ -1,5 +1,6 @@
 import psycopg2
 import json
+import os
 
 def importFile(f):
     jsonFile = open(f,"r").read()
@@ -48,7 +49,7 @@ def popDB(conn,obj):
         popCourseReq(cur, item)
 
 def main():
-    conn = psycopg2.connect(dbname="conzty01",user="conzty01",host="knuth.luther.edu")
+    conn = psycopg2.connect(os.environ["DATABASE_URL"])
 
     jsonObj = importFile("gened.json")
 
