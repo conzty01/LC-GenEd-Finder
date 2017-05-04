@@ -1,4 +1,5 @@
 import psycopg2
+import os
 
 def createCourse(cursor):
     cursor.execute("DROP TABLE IF EXISTS course CASCADE;")
