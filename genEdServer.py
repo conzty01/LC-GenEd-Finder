@@ -4,7 +4,6 @@ import psycopg2
 import json
 import os
 
-
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 conn = psycopg2.connect(dbname="conzty01",user="conzty01",host=)
@@ -56,4 +55,5 @@ def searchMultiple():
 
     return render_template("result.html",results=cur.fetchall(),ql=queryList)
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
