@@ -2,10 +2,12 @@ from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap
 import psycopg2
 import json
+import os
+
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
-conn = psycopg2.connect(dbname="conzty01",user="conzty01",host="knuth.luther.edu")
+conn = psycopg2.connect(dbname="conzty01",user="conzty01",host=)
 
 @app.route("/")
 def index():
