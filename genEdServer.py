@@ -6,6 +6,8 @@ import os
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
+
+#conn = psycopg2.connect(dbname="conzty01", user="conzty01",host="knuth.luther.edu")
 conn = psycopg2.connect(os.environ["DATABASE_URL"])
 @app.route("/")
 def index():
@@ -53,6 +55,19 @@ def searchMultiple():
     """.format(queryStr))
 
     return render_template("result.html",results=cur.fetchall(),ql=queryList)
+
+@app.route("/searchKeyword/<string:kw>")
+def searchKeyword(kw):
+    kw = "%" + kw + "%"
+    cur = conn.cursor()
+    cur.execute("""
+        SELECT course.num, course.department, course.title, requirement.name
+        FROM course JOIN course_requirement ON(course.id = course_requirement.course)
+                    JOIN requirement ON(course_requirement.requirement = requirement.id)
+        WHERE %s IN (course.title,course.department,requirement.name,course.num,course.description);
+    """,(kw,))
+
+    return render_template("result.html",results=cur.fetchall())
 
 if __name__ == "__main__":
     app.run(debug=True)
