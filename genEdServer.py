@@ -22,7 +22,7 @@ def searchGenEd(genEd):
     cur = conn.cursor()
 
     cur.execute("""
-        SELECT num, title, department, name
+        SELECT num, department, title, name
         FROM course JOIN course_requirement ON(course.id = course_requirement.course)
              JOIN requirement ON(course_requirement.requirement = requirement.id)
         WHERE name = '{}'
