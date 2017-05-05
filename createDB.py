@@ -29,8 +29,7 @@ def createRequirement(cursor):
     """)
     genEds = ["Quantitative","Natural World—Lab","Wellness","Religion","Human Behavior","Human Behavior—Social Science Methods",
                 "Intercultural","Human Expression","Historical","Natural World—Nonlab","Biblical Studies",
-                "Human Expression—Primary Texts","Skills","Paideia111/112","Language","Wellness","Paideia 450","Senior Project",
-                "Ethical"]
+                "Human Expression—Primary Texts","Skills","Wellness"]
 
     for i in genEds:
         cursor.execute("INSERT INTO requirement (name) VALUES ('{}')".format(i))
