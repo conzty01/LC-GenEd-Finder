@@ -1,4 +1,5 @@
 import psycopg2
+import codecs
 import json
 import os
 
@@ -12,14 +13,19 @@ def formatTables(cur):
 
 def popCourse(cur,courseDict):
     if courseDict["description"] != None:
-        d = courseDict["description"].replace("'","''")
+        d = courseDict["description"].replace("'","''").encode("utf8")
         executeStr = "INSERT INTO course (num, title, department, description) VALUES ('{}', '{}', '{}', '{}');"\
-                .format(courseDict["number"], courseDict["title"].replace("'","''"), courseDict["subject"], d)
+                .format(courseDict["number"].encode("utf8"),
+                        courseDict["title"].replace("'","''").encode("utf8"),
+                        courseDict["subject"].encode("utf8"),
+                        d)
 
         # if the description is None, then do not include the description so the value is set to null
     else:
         executeStr = "INSERT INTO course (num, title, department) VALUES ('{}', '{}', '{}');"\
-                .format(courseDict["number"], courseDict["title"].replace("'","''"), courseDict["subject"])
+                .format(courseDict["number"].encode("utf8"),
+                        courseDict["title"].replace("'","''").encode("utf8"),
+                        courseDict["subject"].encode("utf8"))
 
     cur.execute(executeStr)
 
@@ -43,17 +49,20 @@ def popCourseReq(cur,courseDict):
 def popDB(conn,obj):
     cur = conn.cursor()
     formatTables(cur)
+    c = 0
 
     for item in obj:
         popCourse(cur, item)
         popCourseReq(cur, item)
 
-def main():
-    conn = psycopg2.connect(os.environ["DATABASE_URL"])
+def run(f):
+    #conn = psycopg2.connect(os.environ["DATABASE_URL"])
+    conn = psycopg2.connect(dbname="gened", user="conzty01")
 
-    jsonObj = importFile("gened.json")
+    jsonObj = importFile(f)
 
     popDB(conn,jsonObj)
     conn.commit()
 
-main()
+if __name__ == "__main__":
+    run("lcCourses.json")

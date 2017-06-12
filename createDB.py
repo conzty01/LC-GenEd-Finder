@@ -1,4 +1,5 @@
 import psycopg2
+import json
 import os
 
 def createCourse(cursor):
@@ -15,7 +16,7 @@ def createCourse(cursor):
     );
 
     """)
-def createRequirement(cursor):
+def createRequirement(cursor,fName):
     cursor.execute("DROP TABLE IF EXISTS requirement CASCADE;")
     cursor.execute("""
 
@@ -27,9 +28,9 @@ def createRequirement(cursor):
     );
 
     """)
-    genEds = ["Quantitative","Natural World—Lab","Wellness","Religion","Human Behavior","Human Behavior—Social Science Methods",
-                "Intercultural","Human Expression","Historical","Natural World—Nonlab","Biblical Studies",
-                "Human Expression—Primary Texts","Skills","Wellness"]
+
+    genEds = getGenEdSet(fName)
+    #print(genEds)
 
     for i in genEds:
         cursor.execute("INSERT INTO requirement (name) VALUES ('{}')".format(i))
@@ -46,14 +47,28 @@ def createCourseReq(cursor):
     );
 
     """)
-def main():
-    conn = psycopg2.connect(os.environ["DATABASE_URL"])
+def getGenEdSet(fName):
+    genEds = set()
+    f = open(fName,"r").read()
+
+    jsonFile = json.loads(f)
+
+    for course in jsonFile:
+        for ge in course["fulfills"]:
+            genEds.add(ge)
+
+    return genEds
+
+def run(f):
+    #conn = psycopg2.connect(os.environ["DATABASE_URL"])
+    conn = psycopg2.connect(dbname="gened", user="conzty01")
     cur = conn.cursor()
 
     createCourse(cur)
-    createRequirement(cur)
+    createRequirement(cur,f)
     createCourseReq(cur)
 
     conn.commit()
 
-main()
+if __name__ == "__main__":
+    run("lcCourses.json")
