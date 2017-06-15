@@ -60,8 +60,8 @@ def getGenEdSet(fName):
     return genEds
 
 def run(f):
-    #conn = psycopg2.connect(os.environ["DATABASE_URL"])
-    conn = psycopg2.connect(dbname="gened", user="conzty01")
+    conn = psycopg2.connect(os.environ["DATABASE_URL"])
+    #conn = psycopg2.connect(dbname="gened", user="conzty01")
     cur = conn.cursor()
 
     createCourse(cur)

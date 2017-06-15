@@ -56,8 +56,8 @@ def popDB(conn,obj):
         popCourseReq(cur, item)
 
 def run(f):
-    #conn = psycopg2.connect(os.environ["DATABASE_URL"])
-    conn = psycopg2.connect(dbname="gened", user="conzty01")
+    conn = psycopg2.connect(os.environ["DATABASE_URL"])
+    #conn = psycopg2.connect(dbname="gened", user="conzty01")
 
     jsonObj = importFile(f)
 
