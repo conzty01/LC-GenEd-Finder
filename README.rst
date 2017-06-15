@@ -36,6 +36,7 @@ Before running the server, run the resetGenEd.py script.  Alternatively, you can
 the following commands to set up the database.
 
 ::
+
 	$ scrapy crawl courseSpider -o lcCourses.json
 	$ python createDB.py
 	$ python populateDB.py
