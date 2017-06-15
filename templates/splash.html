@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block style %}
+<link rel="stylesheet" href="/static/splash.css">
+{% endblock %}
+
+{% block body %}
+<div class="parallax">
+    <div class="parallaxCaption">
+        <img src="/static/images/lutherlogo.png" style="width:75%;" alt="Luther College">
+        <hr />
+        <p>Find the <strong>GenEd</strong> that's right for you!</p>
+    </div>
+    <span class="scroll-icon">&#9699;</span>
+</div>
+<div class="textCont">
+    <div class="splashHeader">
+        <h1>Luther College GenEd Database</h1>
+        <p>This is a web application that searches through the courses
+            offered at <strong>Luther College</strong> and allows you to search through
+            those courses based on the <strong>All College General Education</strong>
+            requirements that they satisfy.</p>
+        <a class="enterSite" href="/index">Search the Database</a>
+    </div>
+</div>
+<footer>
+    <p>Luther College&#9702;700 College Drive&#9702;Decorah, Iowa 52101&#9702;USA<br />
+        563-387-2000&#9702;800-4-LUTHER (800-458-8437)</p>
+</footer>
+
+{% endblock %}

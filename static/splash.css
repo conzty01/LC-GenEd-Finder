@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+body, html {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+footer {
+    position: relative;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+    font-family: "Open Sans Light";
+    background: #1073ce;
+    color: #FFF;
+    text-align: center;
+}
+.parallax {
+    /* The image used */
+    background-image: url("./images/Storm-Bailey-Lecture_4.jpg");
+
+    /* Set a specific height */
+    height: 97%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallaxCaption {
+    position: relative;
+    top: 7%;
+    width: 30%;
+    min-width: 150px;
+    background-color: #1073ce;
+    color: #FFF;
+    font-family: "Open Sans Regular";
+    padding-bottom: 1px;
+    text-align: center;
+    border-radius: 0px 7px 7px 0px;
+
+}
+.parallaxCaption > img {
+    width: 65%;
+    margin-top: 15px;
+}
+.parallaxCaption > hr {
+    width: 65%;
+    border: 0px;
+    height: 1px;
+    //background-color: #FFF;
+    background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));
+}
+.scroll-icon {
+    color: #FFF;
+    padding-top: 2px;
+    padding-right: 9px;
+    direction: rtl;
+    z-index: 1;
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    left: 50%;
+    //bottom: 40px;
+    bottom: -20px;
+    margin-left: -50px;
+    border: 2px solid #1073ce;
+    background: #1073ce;
+    border-radius: 6px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.textCont {
+    display: block;
+    background-color: #FFF;
+    text-align: center;
+    padding: 5px 75px 50px 75px;
+    margin-top: 3%;
+    border-top: 5px;
+    border-color: #1073ce;
+    font-size: 1.125em;
+}
+.splashHeader > h1 {
+    font-family: "myriad-pro-condensed", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+    font-size: 2.5em;
+    color: #1073ce;
+}
+.splashHeader {
+    margin: auto;
+    width: 100%;
+    display: block;
+    color: #666;
+    text-align: center;
+    font-size: 1.125em;
+    font-family: "Open Sans Regular";
+}
+.enterSite, .enterSite:link {
+    color: #FFF;
+    background-color: #1073ce;
+    text-decoration: none;
+}
+.enterSite {
+    box-shadow: none;
+    color: #FFF;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 14px;
+    margin: 5px auto;
+    padding: 10px;
+    width: 30%;
+    font-family: "Open Sans Regular";
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
+a:link {
+    text-decoration: none;
+    text-decoration-color: #FFF;
+    text-decoration-line: none;
+}
+@media only screen and (max-device-width: 1024px) {
+    .parallax {
+        background-attachment: scroll;
+    }
+}

@@ -3,9 +3,11 @@
     <head>
         <meta charset="utf-8">
         {% block head %}
-        <title>{% block title %}LC GenEd Finder{% endblock %}</title>
-        <link rel="stylesheet" href="/static/boostrap.css">
+        <title>{% block title %}LC GenEd Database{% endblock %}</title>
+        <link rel="icon" href="/static/images/favicon.ico">
+        <link rel="stylesheet" href="/static/bootstrap.css">
         <link rel="stylesheet" href="/static/master.css">
+        {% block style %}{% endblock %}
         {% endblock %}
     </head>
     <body>
