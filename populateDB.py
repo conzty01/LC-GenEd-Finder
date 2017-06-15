@@ -52,7 +52,7 @@ def popDB(conn,obj):
     c = 0
 
     for item in obj:
-	c+=1
+        c+=1
 	print("course_id",c)
         popCourse(cur, item)
         popCourseReq(cur, item)
