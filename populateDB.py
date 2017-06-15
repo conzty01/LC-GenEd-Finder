@@ -52,6 +52,8 @@ def popDB(conn,obj):
     c = 0
 
     for item in obj:
+	c+=1
+	print("course_id",c)
         popCourse(cur, item)
         popCourseReq(cur, item)
 
@@ -60,9 +62,11 @@ def run(f):
     #conn = psycopg2.connect(dbname="gened", user="conzty01")
 
     jsonObj = importFile(f)
-
+    print("populating database")
     popDB(conn,jsonObj)
+    print("commiting changes")
     conn.commit()
+    print("completed changes")
 
 if __name__ == "__main__":
     run("lcCourses.json")

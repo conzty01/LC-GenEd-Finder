@@ -64,11 +64,15 @@ def run(f):
     #conn = psycopg2.connect(dbname="gened", user="conzty01")
     cur = conn.cursor()
 
+    print("creating 'course' table")
     createCourse(cur)
+    print("creating 'requirement' table")
     createRequirement(cur,f)
+    print("creating 'courseReq' table")
     createCourseReq(cur)
-
+    print("commiting tables")
     conn.commit()
+    print("finished creation")
 
 if __name__ == "__main__":
     run("lcCourses.json")
