@@ -7,8 +7,8 @@ import os
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
-#conn = psycopg2.connect(dbname="gened", user="conzty01")
-conn = psycopg2.connect(os.environ["DATABASE_URL"])
+conn = psycopg2.connect(dbname="gened", user="conzty01")
+#conn = psycopg2.connect(os.environ["DATABASE_URL"])
 @app.route("/")
 def splash():
     return render_template("splash.html")

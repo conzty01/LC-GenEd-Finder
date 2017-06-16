@@ -56,6 +56,16 @@ td #center {
 form {
     margin-bottom: 15px;
 }
+footer {
+    position: absolute;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+    font-family: "Open Sans Light";
+    background: #1073ce;
+    color: #FFF;
+    text-align: center;
+}
 .table-striped > tbody > tr:nth-of-type(odd) {
   background-color: #e6f1ff;
 }
@@ -87,5 +97,3 @@ form {
     float: right;
     padding-right: 12%;
 }
-
-
