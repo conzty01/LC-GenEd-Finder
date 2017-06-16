@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+/* Elements */
+table {
+    border: 1px;
+    border-color: #000;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-bottom: 15px;
+    width: 90%;
+}
+td #center {
+    width: auto;
+}
+
+/* Classes and Ids */
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #e6f1ff;
+}

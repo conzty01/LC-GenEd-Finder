@@ -1,9 +1,8 @@
 @charset "UTF-8";
 
-/* Tags */
+/* Elements */
 body, html {
     height: 100%;
-    margin: 0px;
     padding: 0px;
     background-color: #1073ce;
 }
@@ -16,7 +15,7 @@ a:link, a:hover, a:visited, a:active {
 /* Classes and Ids */
 .parallax {
     /* The image used */
-    background-image: url("./images/Storm-Bailey-Lecture_4.jpg");
+    background-image: url("../images/Storm-Bailey-Lecture_4.jpg");
 
     /* Set a specific height */
     height: 97%;
@@ -35,7 +34,6 @@ a:link, a:hover, a:visited, a:active {
     min-width: 350px;
     background-color: #1073ce;
     color: #FFF;
-    font-family: "Open Sans Regular";
     padding-bottom: 1px;
     text-align: center;
     border-radius: 0px 7px 7px 0px;
@@ -49,7 +47,6 @@ a:link, a:hover, a:visited, a:active {
     width: 65%;
     border: 0px;
     height: 1px;
-    //background-color: #FFF;
     background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));
 }
 .scroll-icon {
@@ -62,7 +59,6 @@ a:link, a:hover, a:visited, a:active {
     width: 70px;
     height: 70px;
     left: 50%;
-    //bottom: 40px;
     bottom: -20px;
     margin-left: -50px;
     border: 2px solid #1073ce;
@@ -75,7 +71,7 @@ a:link, a:hover, a:visited, a:active {
     display: block;
     background-color: #FFF;
     text-align: center;
-    padding: 5px 21% 50px 21%;
+    padding: 5px 20% 50px 20%;
     margin-top: 3%;
     border-top: 5px;
     border-color: #1073ce;
@@ -85,9 +81,7 @@ a:link, a:hover, a:visited, a:active {
     margin: 20px 0;
 }
 .splashHeader > h1 {
-    font-family: "myriad-pro-condensed", "Helvetica Neue", "Helvetica", Arial, sans-serif;
     font-size: 2.5em;
-    color: #1073ce;
 }
 .splashHeader {
     margin: auto;
@@ -97,24 +91,6 @@ a:link, a:hover, a:visited, a:active {
     text-align: center;
     font-size: 1.125em;
     font-family: "Open Sans Regular";
-}
-.enterSite, .enterSite:link {
-    color: #FFF;
-    background-color: #1073ce;
-    text-decoration: none;
-}
-.enterSite {
-    box-shadow: none;
-    color: #FFF;
-    display: inline-block;
-    vertical-align: middle;
-    border-radius: 14px;
-    margin: 5px auto;
-    padding: 10px;
-    width: auto;
-    font-family: "Open Sans Regular";
-    font-size: 1.2em;
-    text-transform: uppercase;
 }
 
 /* Device Formatting */
