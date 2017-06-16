@@ -1,14 +1,19 @@
 @charset "UTF-8";
 
+/* Tags */
 body, html {
     height: 100%;
     margin: 0px;
     padding: 0px;
+    background-color: #1073ce;
 }
-a:hover, a:visited, a:active {
+a:link, a:hover, a:visited, a:active {
     color: #FFF;
     text-decoration: none;
+    text-decoration-line: none;
 }
+
+/* Classes and Ids */
 .parallax {
     /* The image used */
     background-image: url("./images/Storm-Bailey-Lecture_4.jpg");
@@ -27,7 +32,7 @@ a:hover, a:visited, a:active {
     font-size: 1.125em;
     top: 7%;
     width: 30%;
-    min-width: 150px;
+    min-width: 350px;
     background-color: #1073ce;
     color: #FFF;
     font-family: "Open Sans Regular";
@@ -70,11 +75,14 @@ a:hover, a:visited, a:active {
     display: block;
     background-color: #FFF;
     text-align: center;
-    padding: 5px 15% 50px 15%;
+    padding: 5px 21% 50px 21%;
     margin-top: 3%;
     border-top: 5px;
     border-color: #1073ce;
     font-size: 1.125em;
+}
+.splashHeader > p {
+    margin: 20px 0;
 }
 .splashHeader > h1 {
     font-family: "myriad-pro-condensed", "Helvetica Neue", "Helvetica", Arial, sans-serif;
@@ -108,11 +116,8 @@ a:hover, a:visited, a:active {
     font-size: 1.2em;
     text-transform: uppercase;
 }
-a:link {
-    text-decoration: none;
-    text-decoration-color: #FFF;
-    text-decoration-line: none;
-}
+
+/* Device Formatting */
 @media only screen and (max-device-width: 1024px) {
     .parallax {
         background-attachment: scroll;

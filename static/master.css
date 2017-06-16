@@ -1,4 +1,6 @@
 @charset "UTF-8";
+
+/* Fonts */
 @font-face {
   font-family: "myriad-pro-condensed";
   font-style: normal;
@@ -27,9 +29,7 @@
   unicode-range: U+0-FF, U+131, U+152-153, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
 
-body {
-    background-color: #1073ce;
-}
+/* Tags */
 h1 {
     text-align: center;
 }
@@ -57,7 +57,7 @@ form {
     margin-bottom: 15px;
 }
 footer {
-    position: absolute;
+    position: relative;
     padding: 10px;
     bottom: 0;
     width: 100%;
@@ -66,6 +66,8 @@ footer {
     color: #FFF;
     text-align: center;
 }
+
+/* Classes and Ids */
 .table-striped > tbody > tr:nth-of-type(odd) {
   background-color: #e6f1ff;
 }
