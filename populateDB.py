@@ -13,19 +13,19 @@ def formatTables(cur):
 
 def popCourse(cur,courseDict):
     if courseDict["description"] != None:
-        d = courseDict["description"].replace("'","''").encode("utf8")
+        d = courseDict["description"].replace("'","''")
         executeStr = "INSERT INTO course (num, title, department, description) VALUES ('{}', '{}', '{}', '{}');"\
-                .format(courseDict["number"].encode("utf8"),
-                        courseDict["title"].replace("'","''").encode("utf8"),
-                        courseDict["subject"].encode("utf8"),
+                .format(courseDict["number"],
+                        courseDict["title"].replace("'","''"),
+                        courseDict["subject"],
                         d)
 
         # if the description is None, then do not include the description so the value is set to null
     else:
         executeStr = "INSERT INTO course (num, title, department) VALUES ('{}', '{}', '{}');"\
-                .format(courseDict["number"].encode("utf8"),
-                        courseDict["title"].replace("'","''").encode("utf8"),
-                        courseDict["subject"].encode("utf8"))
+                .format(courseDict["number"],
+                        courseDict["title"].replace("'","''"),
+                        courseDict["subject"])
 
     cur.execute(executeStr)
 
