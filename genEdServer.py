@@ -73,5 +73,13 @@ def searchKeyword(kw):
 
     return render_template("result.html",results=cur.fetchall())
 
+@app.route("/test")
+def test():
+    cur = conn.cursor()
+
+    cur.execute("SELECT name FROM requirement;")
+
+    return render_template("testIndex.html",requirement=cur.fetchall())
+
 if __name__ == "__main__":
     app.run(debug=True)

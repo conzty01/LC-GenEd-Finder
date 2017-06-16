@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block style %}
+<link rel="stylesheet" href="/static/css/index.css">
+{% endblock %}
+
+{% block body %}
+<div class="header">
+    <h1>Find the GenEd That is Right for You!</h1>
+    <p class="description">
+        This is a web application that searches through the courses
+        offered at <strong>Luther College</strong> and allows you to
+        search through those courses based on the <strong>All College
+        General Education</strong> requirements that they satisfy. You
+        may either click a GenEd on the left to search by a single
+        requirement, or select mulitple GenEds on the right to search
+        by multiple requirements. Alternatively, you can search by
+        keywords, course title, course number or department.
+    </p>
+</div>
+<div class="ballRoom">
+    <span class="triangleDeco"></span>
+    <div class="ballPit">
+        {% for entryTuple in requirement: %}
+        <a class="clickable" onclick="selectGenEd('{{ entryTuple[0] }}')" name="{{ entryTuple[0] }}">{{ entryTuple[0] }}</a>
+        {% endfor %}
+    </div>
+</div>
+<div class="searchDiv">
+    <input id="search" type="text" name="search" placeholder="Computer Science, CS-330, Internet..." />
+    <button type="button" class="btn btn-primary">Search the Database</button>
+</div>
+{% endblock %}
