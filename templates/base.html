@@ -5,8 +5,8 @@
         {% block head %}
         <title>{% block title %}LC GenEd Database{% endblock %}</title>
         <link rel="icon" href="/static/images/favicon.ico">
-        <link rel="stylesheet" href="/static/bootstrap.css">
-        <link rel="stylesheet" href="/static/master.css">
+        <link rel="stylesheet" href="/static/css/bootstrap.css">
+        <link rel="stylesheet" href="/static/css/master.css">
         {% block style %}{% endblock %}
         {% endblock %}
     </head>
@@ -17,10 +17,13 @@
             <h1>{% block header %}Find the GenEd That is Right for You!{% endblock %}</h1>
 
             <p class="description">{% block description %}
-                This is a web application that searches through the courses offered at Luther College
-                and allows you to search through those courses based on the All College General Education
-                requirements that they satisfy. You may either click a GenEd on the left to search by a single
-                requirement, or select mulitple GenEds on the right to search by multiple requirements.
+                This is a web application that searches through the courses
+                offered at <strong>Luther College</strong> and allows you to
+                search through those courses based on the <strong>All College
+                General Education</strong> requirements that they satisfy. You
+                may either click a GenEd on the left to search by a single
+                requirement, or select mulitple GenEds on the right to search
+                by multiple requirements.
             {% endblock %}</p>
 
             {% block container %}
