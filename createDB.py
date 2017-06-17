@@ -34,6 +34,9 @@ def createRequirement(cursor,fName):
 
     for i in genEds:
         cursor.execute("INSERT INTO requirement (name) VALUES ('{}')".format(i))
+
+    # Adds a 'None' requirement that will connect to courses that satisfy none
+    cursor.execute("INSERT INTO requirement (name) VALUES ('None')")
 def createCourseReq(cursor):
     cursor.execute("DROP TABLE IF EXISTS course_requirement")
     cursor.execute("""
@@ -60,8 +63,8 @@ def getGenEdSet(fName):
     return genEds
 
 def run(f):
-    conn = psycopg2.connect(os.environ["DATABASE_URL"])
-    #conn = psycopg2.connect(dbname="gened", user="conzty01")
+    #conn = psycopg2.connect(os.environ["DATABASE_URL"])
+    conn = psycopg2.connect(dbname="gened", user="conzty01")
     cur = conn.cursor()
 
     print("creating 'course' table")

@@ -5,6 +5,7 @@ import populateDB
 def formatJSON(f):
     inFile = open(f,"r")
     fileString = inFile.read().replace("\u2014","--")
+    fileString = fileString.replace("\ufffd","")
     inFile.close()
 
     outFile = open(f,"w")
