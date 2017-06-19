@@ -3,22 +3,40 @@
 <link rel="stylesheet" href="/static/css/index.css">
 {% endblock %}
 
-{% block container %}
-<div class="leftColumn">
-    <h3>Search by GenEd!</h3>
-    <ul>
-        {% for entryTuple in requirement: %}
-        <li><a class="clickable" href="/{{ entryTuple[0] }}">{{ entryTuple[0] }}</a></li>
-        {% endfor %}
-    </ul>
+{% block body %}
+<div class="header">
+    <h1>Find the GenEd That is Right for You!</h1>
+    <p class="description">
+        This is a web application that searches through the courses
+        offered at <strong>Luther College</strong> and allows you to
+        search through those courses based on the <strong>All College
+        General Education</strong> requirements that they satisfy. You
+        may either click a GenEd on the left to search by a single
+        requirement, or select mulitple GenEds on the right to search
+        by multiple requirements. Alternatively, you can search by
+        keywords, course title, course number or department.
+    </p>
 </div>
-<div class="rightColumn">
-    <h3>Search by Multiple GenEds!</h3>
-    <form id="searchMultiple" action="/searchMult/" method="post">
-        {% for entryTuple in requirement: %}
-        <input type="checkbox" name="{{ entryTuple[0] }}" value="{{ entryTuple[0] }}">{{ entryTuple[0] }}</br>
-        {% endfor %}
-        <input type="submit" value="Submit">
-    </form>
-</div>
+<form action="/searchMult/" method="post">
+    <div class="ballRoom">
+        <span class="triangleDeco"></span>
+        <div class="ballPit">
+            {% for entryTuple in requirement: %}
+            <div class="ball">
+                <label for="{{ entryTuple[0] }}" value="{{ entryTuple[0] }}">
+                    {{ entryTuple[0] }} <input type="checkbox" id="{{ entryTuple[0] }}" name="{{ entryTuple[0] }}" onchange="changeCheck(this)">
+                </label>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="searchDiv">
+        <input id="search" type="text" name="search" placeholder="Computer Science, CS-330, Internet..." />
+        <button type="submit" class="btn btn-primary">Search the Database</button>
+    </div>
+</form>
+{% endblock %}
+
+{% block script %}
+<script src="static/js/index.js"></script>
 {% endblock %}
