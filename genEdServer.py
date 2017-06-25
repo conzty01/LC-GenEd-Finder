@@ -29,7 +29,7 @@ def searchMult():
     genEdStr = ""
 
     for i in request.form:
-        print(i)
+        #print(i)
         if i != "search":
             queryList.append(i)
             genEdStr += "'{}' = ANY(req) AND \n".format(i)

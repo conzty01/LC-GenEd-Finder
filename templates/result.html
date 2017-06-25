@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block container %}
+<a href="/index"><div class="backToSearch">Search For Something Else</div></a>
 <div class="results">
     <table class="table-striped">
         <tr><th>Course Number</th><th>Course Title</th><th>Fullfills</th></tr>
@@ -28,7 +29,7 @@
                 <td>--</td>
             </tr>
         {% endif %}
-        <tr><td colspan="3"><a href="#Top">Back To Top</a></td></tr>
     </table>
+    <div class="clickable"><a href="#Top">Back To Top</a></div>
 </div>
 {% endblock %}

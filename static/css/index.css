@@ -30,27 +30,6 @@ input[type=checkbox] {
 }
 
 /* Classes and Ids */
-.leftColumn {
-    border: 1px;
-    position: relative;
-    width: auto;
-    display: block;
-    float: left;
-    padding-left: 10%;
-}
-.rightColumn {
-    border: 1px;
-    position: relative;
-    width: auto;
-    display: block;
-    float: right;
-    padding-right: 12%;
-}
-.description {
-    color: #666;
-}
-
-/* Test Classes */
 #search {
     width: 30%;
     display: block;
@@ -67,7 +46,6 @@ input[type=checkbox] {
     margin: 20px auto 20px auto;
 }
 .ballPit {
-    border: 1px solid #000;
     background: #FFF;
     overflow: hidden;
     position: relative;
