@@ -39,7 +39,7 @@ td #center {
     text-transform: uppercase;
     text-align: center;
 }
-.backToSearch > a:active, .backToSearch > a:hover, .backToSearch > a:link, .backToSearch > a:visited {
+.backToSearch a:active, .backToSearch a:hover, .backToSearch a:link, .backToSearch a:visited {
     color: #FFF;
     text-decoration: none;
 }
