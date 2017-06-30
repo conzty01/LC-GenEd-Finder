@@ -20,6 +20,7 @@ h1 {
 td #center {
     width: auto;
 }
+
 /* Classes and Ids */
 .table-striped > tbody > tr:nth-of-type(odd) {
   background-color: #e6f1ff;
