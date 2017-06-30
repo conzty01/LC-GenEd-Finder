@@ -54,16 +54,27 @@ def searchMult():
 
     queryList += searchTerms
 
-    cur.execute("""
-        SELECT course.num, course.department, c.title, req
-        FROM (SELECT course.title, ARRAY_AGG(DISTINCT requirement.name) AS req
-              FROM course JOIN course_requirement ON(course.id = course_requirement.course)
-                          JOIN requirement ON(course_requirement.requirement = requirement.id)
-              GROUP BY course.title) As c
-              JOIN course ON(c.title = course.title)
-        WHERE {} {}
-        ORDER BY ARRAY_LENGTH(req,1) DESC, c.title ASC;
-    """.format(genEdStr, searchStr))
+    if (genEdStr == "") and (searchStr == ""):                  # Return all results
+        cur.execute("""
+            SELECT course.num, course.department, c.title, req
+            FROM (SELECT course.title, ARRAY_AGG(DISTINCT requirement.name) AS req
+                  FROM course JOIN course_requirement ON(course.id = course_requirement.course)
+                              JOIN requirement ON(course_requirement.requirement = requirement.id)
+                  GROUP BY course.title) As c
+                  JOIN course ON(c.title = course.title)
+            ORDER BY ARRAY_LENGTH(req,1) DESC, c.title ASC;
+        """)
+    else:
+        cur.execute("""
+            SELECT course.num, course.department, c.title, req
+            FROM (SELECT course.title, ARRAY_AGG(DISTINCT requirement.name) AS req
+                  FROM course JOIN course_requirement ON(course.id = course_requirement.course)
+                              JOIN requirement ON(course_requirement.requirement = requirement.id)
+                  GROUP BY course.title) As c
+                  JOIN course ON(c.title = course.title)
+            WHERE {} {}
+            ORDER BY ARRAY_LENGTH(req,1) DESC, c.title ASC;
+        """.format(genEdStr, searchStr))
 
     return render_template("result.html",results=cur.fetchall(),ql=queryList)
 
