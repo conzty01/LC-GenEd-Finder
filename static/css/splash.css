@@ -94,7 +94,7 @@ a:link, a:hover, a:visited, a:active {
 }
 
 /* Device Formatting */
-@media only screen and (max-device-width: 1024px) {
+@media only screen and (max-width: 1024px) {
     .parallax {
         background-attachment: scroll;
     }

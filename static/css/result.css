@@ -25,23 +25,12 @@ td #center {
 .table-striped > tbody > tr:nth-of-type(odd) {
   background-color: #e6f1ff;
 }
-.backToSearch {
-    color: #FFF;
-    background-color: #1073ce;
-    display: block;
-    vertical-align: middle;
-    border-radius: 14px;
-    margin:  10px auto;
-    padding: 10px 15px;
-    width: 30%;
-    font-family: "Open Sans Regular";
-    font-size: 1.2em;
-    text-transform: uppercase;
+.enterSite:active, .enterSite:hover, .enterSite:link, .enterSite:visited {
     text-align: center;
-}
-.backToSearch a:active, .backToSearch a:hover, .backToSearch a:link, .backToSearch a:visited {
     color: #FFF;
     text-decoration: none;
+    display: block;
+    width: 300px;
 }
 .clickable {
     margin: 0 0 10px 0;

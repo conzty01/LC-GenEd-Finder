@@ -106,3 +106,10 @@ input[type=checkbox] {
 .selected {
     background-color: #4a8512;
 }
+
+/* Media Specifications */
+@media screen and (max-width: 1080px) {
+    footer {
+        position: relative;
+    }
+}
