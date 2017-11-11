@@ -10,7 +10,7 @@ def createCourse(cursor):
         id              serial,
         num             varchar(50),
         description     text,
-        title           varchar(100),
+        title           varchar(200),
         department      varchar(100),
         PRIMARY KEY (id)
     );
@@ -51,20 +51,22 @@ def createCourseReq(cursor):
 
     """)
 def getGenEdSet(fName):
-    genEds = set()
-    f = open(fName,"r").read()
+    # genEds = set()
+    # f = open(fName,"r").read()
+    #
+    # jsonFile = json.loads(f)
+    #
+    # for course in jsonFile:
+    #     for ge in course["fulfills"]:
+    #         genEds.add(ge)
+    #
+    # return genEds
 
-    jsonFile = json.loads(f)
-
-    for course in jsonFile:
-        for ge in course["fulfills"]:
-            genEds.add(ge)
-
-    return genEds
+    return {'Intercultural', 'Human Behavior', 'Quantitative', 'Human Expression', 'Religion', 'Natural World--Lab', 'Human Behavior--Social Science Methods', 'Wellness', 'Skills', 'Human Expression--Primary Texts', 'Natural World--Nonlab', 'Historical', 'Biblical Studies'}
 
 def run(f):
-    conn = psycopg2.connect(os.environ["DATABASE_URL"])
-    #conn = psycopg2.connect(dbname="gened", user="conzty01")
+    #conn = psycopg2.connect(os.environ["DATABASE_URL"])
+    conn = psycopg2.connect(dbname="gened", user="conzty01")
     cur = conn.cursor()
 
     print("creating 'course' table")

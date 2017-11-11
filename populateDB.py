@@ -36,10 +36,10 @@ def popCourseReq(cur,courseDict):
             cur.execute("""
 
                 SELECT course.id, req.id
-                FROM (SELECT id FROM course WHERE num = '{}') AS course,
-                     (SELECT id FROM requirement WHERE name = '{}') AS req
+                FROM (SELECT id FROM course WHERE num = %s AND title = %s) AS course,
+                     (SELECT id FROM requirement WHERE name = %s) AS req
 
-            """.format(courseDict["number"],courseDict["fulfills"][i]))
+            """,(courseDict["number"],courseDict["title"],courseDict["fulfills"][i]))
 
             temp = cur.fetchall()
 
@@ -54,7 +54,7 @@ def popCourseReq(cur,courseDict):
 
         temp = cur.fetchall()
 
-        cur.execute("INSERT INTO course_requirement (course, requirement) VALUES ('{}','{}');".format(temp[0][0],temp[0][1]))
+        cur.execute("INSERT INTO course_requirement (course, requirement) VALUES (%s,%s);",(temp[0][0],temp[0][1]))
 
 def popDB(conn,obj):
     cur = conn.cursor()
@@ -63,13 +63,13 @@ def popDB(conn,obj):
 
     for item in obj:
         c+=1
-        print("course_id",c)
+        print("course_id",c,item["title"],item["subject"],item["fulfills"])
         popCourse(cur, item)
         popCourseReq(cur, item)
 
 def run(f):
-    conn = psycopg2.connect(os.environ["DATABASE_URL"])
-    #conn = psycopg2.connect(dbname="gened", user="conzty01")
+    #conn = psycopg2.connect(os.environ["DATABASE_URL"])
+    conn = psycopg2.connect(dbname="gened", user="conzty01")
 
     jsonObj = importFile(f)
     print("populating database")

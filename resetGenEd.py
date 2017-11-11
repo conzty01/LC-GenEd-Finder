@@ -4,8 +4,7 @@ import populateDB
 
 def formatJSON(f):
     inFile = open(f,"r")
-    fileString = inFile.read().replace("\u2014","--")
-    fileString = fileString.replace("\ufffd","")
+    fileString = inFile.read().replace("—","--").replace("é","e")
     inFile.close()
 
     outFile = open(f,"w")
@@ -14,7 +13,7 @@ def formatJSON(f):
 
 def runScrapySpider(f):
     os.system("rm {}".format(f))
-    os.system("scrapy crawl courseSpider -o {}".format(f))
+    os.system("scrapy crawl courseSpider")
 
 def createDatabase(f):
     createDB.run(f)
