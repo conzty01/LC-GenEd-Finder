@@ -65,8 +65,8 @@ def getGenEdSet(fName):
     return {'Intercultural', 'Human Behavior', 'Quantitative', 'Human Expression', 'Religion', 'Natural World--Lab', 'Human Behavior--Social Science Methods', 'Wellness', 'Skills', 'Human Expression--Primary Texts', 'Natural World--Nonlab', 'Historical', 'Biblical Studies'}
 
 def run(f):
-    #conn = psycopg2.connect(os.environ["DATABASE_URL"])
-    conn = psycopg2.connect(dbname="gened", user="conzty01")
+    conn = psycopg2.connect(os.environ["DATABASE_URL"])
+    #conn = psycopg2.connect(dbname="gened", user="conzty01")
     cur = conn.cursor()
 
     print("creating 'course' table")
